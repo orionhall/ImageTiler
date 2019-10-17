@@ -1,12 +1,12 @@
 import React from 'react';
 import Aux from '../../hoc/Auxiliary';
-import TileContainer from '../../components/TileContainer/TileContainer'
+import TilerBody from '../../components/TilerBody/TilerBody';
 
 const ImageTiler = (props) => {
     return (
         <Aux>
             {/* Navbar? */}
-            <TileContainer />
+            <TilerBody />
         </Aux>
     );
 };
