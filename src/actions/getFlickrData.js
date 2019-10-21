@@ -5,6 +5,7 @@ const PUBLIC_FEED = 'https://api.flickr.com/services/feeds/photos_public.gne?&ta
 const SEARCH = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&format=json&nojsoncallback=1`
 
 export const getFlickrData = (props) => {
+    console.log(`getFlickrData is running with props: ${props}`)
     return new Promise((resolve, reject) => {
         let requestURL = PUBLIC_FEED;
     if (props && (props.tags || props.text)) {

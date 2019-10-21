@@ -12,12 +12,13 @@ class ImageTiler extends React.Component {
         this.state = {
             photos: null,
             photosPerRow: 3,
-            showSettingsModal: false
+            showSettingsModal: false,
+            searchQuery: null
         };
     };
 
     componentDidMount() {
-        getFlickrData().then((response) => {
+        getFlickrData({ text: this.state.searchQuery }).then((response) => {
             let photos = response.photos ? response.photos : response.items;
             photos = photos.map((photo, index) => {
                 let newPhotoObj = {...photo},
@@ -33,11 +34,33 @@ class ImageTiler extends React.Component {
         });
     }
 
+    // This is not correct and makes it run endlessly
+    // componentDidUpdate() {
+    //     getFlickrData({ text: this.state.searchQuery }).then((response) => {
+    //         let photos = response.photos ? response.photos : response.items;
+    //         photos = photos.map((photo, index) => {
+    //             let newPhotoObj = {...photo},
+    //                 photoNumber = index + 1,
+    //                 rowNumber = photoNumber % this.state.photosPerRow !== 0 ?
+    //                     Math.floor(photoNumber / this.state.photosPerRow) :
+    //                     (photoNumber / this.state.photosPerRow - 1);
+    //             newPhotoObj.rowNumber = rowNumber;
+    //             newPhotoObj.src = makePhotoURL(photo);
+    //             return newPhotoObj;
+    //         });
+    //         this.setState({ photos });
+    //     });
+    // }
+
     toggleSettingsModal() {
-        let showSettingsModal = this.state.showSettingsModal === false ? true : false;
-        this.setState({ showSettingsModal });
+        this.setState({ showSettingsModal: !this.state.showSettingsModal });
         console.log('Clicked!');
         console.log(this.state.showSettingsModal);
+    }
+
+    search() {
+        this.setState({ searchQuery: 'Theodore Roosevelt' });
+        console.log('it was clicked');
     }
 
     render() {
@@ -47,7 +70,12 @@ class ImageTiler extends React.Component {
                 <main className="content">
                     <TilerBody photos={this.state.photos} />
                 </main>
-                <SettingsModal show={this.state.show}/>
+                <SettingsModal show={this.state.showSettingsModal}
+                    close={this.toggleSettingsModal.bind(this)}
+                    search={this.search.bind(this)}>
+                    {/* Buttons and stuff for changing settings will go here, I guess */}
+                    <div>Omg it's a modal (tbh I'm proud)</div>
+                </SettingsModal>
             </Aux>
         ); 
     };
