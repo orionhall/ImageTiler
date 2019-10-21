@@ -1,12 +1,12 @@
 import React from 'react';
 import ImageTiler from './containers/ImageTiler/ImageTiler';
-import Modal from './components/Modal/Modal';
+import SettingsModal from './components/SettingsModal/SettingsModal';
 
 function App() {
   return (
     <div className='App'>
       <ImageTiler />
-      <Modal />
+      <SettingsModal />
     </div>
   );
 }

@@ -1,16 +1,7 @@
-import React, { useState } from 'react'
-import { getFlickrData } from '../../../../actions/getFlickrData';
-
-const openSettings = (e) => {
-
-}
+import React from 'react'
 
 const SettingsButton = (props) => {
-    const [settings, changeSettings] = useState({});
-    const kek = {
-        text: 'hiya'
-    };
-    return (<li onClick={() => getFlickrData(kek)} className='navigationItem'>
+    return (<li onClick={props.toggleModalHandler} className='navigationItem'>
             Settings
     </li>)
 };

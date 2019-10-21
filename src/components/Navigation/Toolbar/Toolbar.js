@@ -2,11 +2,11 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
-const Toolbar = () => {
+const Toolbar = (props) => {
     return (
         <header className="toolbar">
             <Logo />
-            <NavigationItems />
+            <NavigationItems toggleModalHandler={props.toggleModalHandler} />
         </header>
     );
 };
