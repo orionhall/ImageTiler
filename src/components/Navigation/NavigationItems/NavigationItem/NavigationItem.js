@@ -1,9 +1,11 @@
 import React from 'react'
 
 const NavigationItem = (props) => (
-    <button id={props.navPurpose} className={props.navPurpose}>
-        {props.buttonTitle}
-    </button>
+    <li className='navigationItem'>
+        <a href={props.link} className="activeLink">
+            {props.children}
+        </a>
+    </li>
 );
 
 export default NavigationItem;
