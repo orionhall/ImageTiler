@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const API_KEY = 'f186e590ff216cfdeeb9b1b219683d50'
-const PUBLIC_FEED = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?';
+const PUBLIC_FEED = 'https://api.flickr.com/services/feeds/photos_public.gne?&tags=cats&format=json&jsoncallback=?';
 const GET_POPULAR = `https://www.flickr.com/services/rest/?method=flickr.photos.getPopular&api_key=${API_KEY}&format=json&nojsoncallback=1`;
 const SEARCH = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&format=json&nojsoncallback=1`
 
