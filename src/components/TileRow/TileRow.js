@@ -7,7 +7,7 @@ const TileRow = (props) => {
         <div className="tileRow">
             {props.rowPhotos.map((photo) => {
                 return (
-                    <Tile key={photo.id} alt={photo.id} src={photo.src} />
+                    <Tile key={photo.title} alt={photo.title} src={photo.src} />
                 );
             })}
         </div>

@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-
-const [settings, changeSettings] = useState({})
+import { getFlickrData } from '../../../../actions/getFlickrData';
 
 const openSettings = (e) => {
 
 }
 
-const SettingsButton = (props) => (
-    <li onClick={openSettings} className='navigationItem'>
-            {props.children}
-    </li>
-);
+const SettingsButton = (props) => {
+    const [settings, changeSettings] = useState({});
+    const kek = {
+        text: 'hiya'
+    };
+    return (<li onClick={() => getFlickrData(kek)} className='navigationItem'>
+            Settings
+    </li>)
+};
 
 export default SettingsButton;
